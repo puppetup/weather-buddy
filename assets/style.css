@@ -1,4 +1,48 @@
-body {
-    background-color:ghostwhite
+header {
+    text-align: center;
 }
 
+.b {
+    border-style: solid;
+}
+
+.card {
+    height: 100%;
+}
+
+.flex-main {
+    margin-left: 8vw;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80vw;
+    height: 90vh;
+}
+
+.flex-left {
+    display: flex;
+    flex-direction:column;
+    width: 15vw;
+    
+}
+
+.flex-wide {
+    display: flex; 
+    width: 80%;
+    flex-direction: column;
+}
+
+#list {
+    height: 100%;
+}
+
+#one-day {
+    
+   
+    height: 60%;
+    width: 100%;
+}
+
+#five-day {
+    height: 40%;
+    width: 100%;
+}
