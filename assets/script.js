@@ -47,6 +47,7 @@ function showWeather(resp) {
     console.log(resp)
     let oneDay = document.querySelector('#one-day')
     let fiveDay = document.querySelector('.card-group')
+    var dt = new Date(resp.current.dt * 1000);
     oneDay.innerHTML =  `<div class="card bg-dark text-white">
                             <img src="http://openweathermap.org/img/wn/${resp.current.weather[0].icon}@2x.png" class="card-img" alt="...">
                             <div class="card-img-overlay">
@@ -55,20 +56,20 @@ function showWeather(resp) {
                             <p class="card-text">Humidity: ${resp.current.humidity}</p>
                             <p class="card-text">Wind Speed: ${resp.current.wind_speed}</p>
                             <p class="card-text">UV Index: ${resp.current.uvi}</p>
-                            <p class="card-text">Date: ${resp.current.dt}</p>
+                            <p class="card-text">Date: ${dt.toDateString()}</p>
                             </div>
                         </div>`
     fiveDay.innerHTML = resp.daily.map((day, idx) => {
         if (idx < 5) {
+            let dt = new Date(day.dt * 1000);
            return ` <div class="card">
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Day1</h5>
+                    <h5 class="card-title">${dt.toDateString()}</h5>
                     <p class="card-text">Temperature: ${day.temp.day}</p>
                     <p class="card-text">Humidity: ${day.humidity}</p>
                     <p class="card-text">Wind speed: ${day.wind_speed}</p>
                     <p class="card-text">UV Index: ${day.uvi}</p>
-                    <p class="card-text">date</p>
                 </div>
             </div>`
         }
