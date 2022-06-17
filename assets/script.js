@@ -7,12 +7,14 @@ http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={A
 
 const searchButton = document.getElementById('submit')
 let key = '33765ca5db55155419754b2e9b44f487'
+let userInput;
 
 getInput = function(event) {
     event.preventDefault()
-    const userInput = document.getElementById('location').value
+    userInput = document.getElementById('location').value
     console.log(userInput)
-    getLocation(userInput)
+    getLocation(userInput);
+    return userInput
 }
 
 
@@ -48,7 +50,7 @@ function showWeather(resp) {
     oneDay.innerHTML =  `<div class="card bg-dark text-white">
                             <img src="http://openweathermap.org/img/wn/${resp.current.weather[0].icon}@2x.png" class="card-img" alt="...">
                             <div class="card-img-overlay">
-                            <h5 class="card-title"></h5>
+                            <h5 class="card-title">${userInput}</h5>
                             <p class="card-text">Temperature: ${resp.current.temp}</p>
                             <p class="card-text">Humidity: ${resp.current.humidity}</p>
                             <p class="card-text">Wind Speed: ${resp.current.wind_speed}</p>
@@ -62,10 +64,10 @@ function showWeather(resp) {
                 <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Day1</h5>
-                    <p class="card-text">temp${day.temp.day}</p>
-                    <p class="card-text">humidity${day.humidity}</p>
-                    <p class="card-text">windspd${day.wind_speed}</p>
-                    <p class="card-text">UV${day.uvi}</p>
+                    <p class="card-text">Temperature: ${day.temp.day}</p>
+                    <p class="card-text">Humidity: ${day.humidity}</p>
+                    <p class="card-text">Wind speed: ${day.wind_speed}</p>
+                    <p class="card-text">UV Index: ${day.uvi}</p>
                     <p class="card-text">date</p>
                 </div>
             </div>`
