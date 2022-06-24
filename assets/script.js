@@ -19,7 +19,7 @@ getInput = function(event) {
 
 
 getLocation = function(userInput) {
-    let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=5&appid=${key}`
+    let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&limit=5&appid=${key}`
     
     //Geocode API
     fetch(geoUrl)
